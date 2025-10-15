@@ -74,14 +74,14 @@
 							"userProperties": [],
 							"typeProperties": {
 								"source": {
-									"type": "BinarySource",
+									"type": "DelimitedTextSource",
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
-										"deleteFilesAfterCompletion": false
+										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
-										"type": "BinaryReadSettings"
+										"type": "DelimitedTextReadSettings"
 									}
 								},
 								"sink": {
@@ -89,26 +89,20 @@
 									"writeBehavior": "insert",
 									"sqlWriterUseTableLock": false
 								},
-								"enableStaging": false
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
 							},
 							"inputs": [
 								{
-									"referenceName": "DS_Copyfilestgtable",
-									"type": "DatasetReference",
-									"parameters": {
-										"container": {
-											"value": "@pipeline().parameters.blobcontainer",
-											"type": "Expression"
-										},
-										"folder": {
-											"value": "@pipeline().parameters.blobdirectory",
-											"type": "Expression"
-										},
-										"FileName": {
-											"value": "@item().name",
-											"type": "Expression"
-										}
-									}
+									"referenceName": "DS_copyfiledata_copysourcestgtable",
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
@@ -121,7 +115,7 @@
 											"type": "Expression"
 										},
 										"table_name": {
-											"value": "@concat('stg_', first(split(item().name, '_')))",
+											"value": "@item().name",
 											"type": "Expression"
 										}
 									}
