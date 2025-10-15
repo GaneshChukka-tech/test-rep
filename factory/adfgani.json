@@ -1,0 +1,9 @@
+{
+	"name": "adfgani",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e6581fbd-5775-4188-98b5-396f97b5224e",
+		"tenantId": "561e90df-dd53-4ca8-b086-c354cade8c79"
+	}
+}
