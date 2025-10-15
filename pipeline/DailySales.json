@@ -102,7 +102,21 @@
 							"inputs": [
 								{
 									"referenceName": "DS_copyfiledata_copysourcestgtable",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"container": {
+											"value": "@pipeline().parameters.blobcontainer",
+											"type": "Expression"
+										},
+										"folder": {
+											"value": "@pipeline().parameters.blobdirectory",
+											"type": "Expression"
+										},
+										"filename": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
