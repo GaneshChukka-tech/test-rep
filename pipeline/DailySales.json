@@ -49,11 +49,11 @@
 		"parameters": {
 			"blobcontainer": {
 				"type": "string",
-				"defaultValue": "'inputfiles'"
+				"defaultValue": "inputfiles"
 			},
 			"blobdirectory": {
 				"type": "string",
-				"defaultValue": "'files/filesinput'"
+				"defaultValue": "files/filesinput"
 			}
 		},
 		"annotations": []
