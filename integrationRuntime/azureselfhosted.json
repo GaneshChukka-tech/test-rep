@@ -1,0 +1,7 @@
+{
+	"name": "azureselfhosted",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "External server access integration runtime setup"
+	}
+}
