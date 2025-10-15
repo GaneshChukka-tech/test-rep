@@ -28,7 +28,7 @@
 								"type": "Expression"
 							},
 							"filename": {
-								"value": "sales*.csv",
+								"value": "sales*.csv,customer*.csv,product*.csv",
 								"type": "Expression"
 							}
 						}
