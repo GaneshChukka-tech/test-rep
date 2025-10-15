@@ -17,7 +17,17 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "DS_Checkfilegetmetadata",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"container": {
+								"value": "@pipeline().parameters.blobcontainer",
+								"type": "Expression"
+							},
+							"directory": {
+								"value": "@pipeline().parameters.blobdirectory",
+								"type": "Expression"
+							}
+						}
 					},
 					"fieldList": [
 						"childItems"
