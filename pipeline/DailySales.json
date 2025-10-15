@@ -40,6 +40,25 @@
 						"type": "BinaryReadSettings"
 					}
 				}
+			},
+			{
+				"name": "Load Each File",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "CheckFileAvailability",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('CheckFileAvailability').output.childItems",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
