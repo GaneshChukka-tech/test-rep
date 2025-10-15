@@ -89,7 +89,17 @@
 							"inputs": [
 								{
 									"referenceName": "DS_Copyfilestgtable",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"container": {
+											"value": "@pipeline().parameters.blobcontainer",
+											"type": "Expression"
+										},
+										"folder": {
+											"value": "@pipeline().parameters.blobdirectory",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
