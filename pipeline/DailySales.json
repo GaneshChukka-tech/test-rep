@@ -30,6 +30,16 @@
 				}
 			}
 		],
+		"parameters": {
+			"blobcontainer": {
+				"type": "string",
+				"defaultValue": "'inputfiles'"
+			},
+			"blobdirectory": {
+				"type": "string",
+				"defaultValue": "'files/filesinput'"
+			}
+		},
 		"annotations": []
 	}
 }
