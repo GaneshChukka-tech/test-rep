@@ -130,7 +130,7 @@
 											"type": "Expression"
 										},
 										"table_name": {
-											"value": "@concat('stg_', first(split(item().name, '_')))",
+											"value": "@concat(first(split(item().name, '_')))",
 											"type": "Expression"
 										}
 									}
