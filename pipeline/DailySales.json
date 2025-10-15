@@ -84,6 +84,11 @@
 										"type": "BinaryReadSettings"
 									}
 								},
+								"sink": {
+									"type": "SqlServerSink",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": false
+								},
 								"enableStaging": false
 							},
 							"inputs": [
@@ -98,8 +103,18 @@
 										"folder": {
 											"value": "@pipeline().parameters.blobdirectory",
 											"type": "Expression"
+										},
+										"FileName": {
+											"value": "@item().name",
+											"type": "Expression"
 										}
 									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DS_getstgtablefromfile",
+									"type": "DatasetReference"
 								}
 							]
 						}
