@@ -114,7 +114,17 @@
 							"outputs": [
 								{
 									"referenceName": "DS_getstgtablefromfile",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"schema": {
+											"value": "@pipeline().parameters.stgschema",
+											"type": "Expression"
+										},
+										"table_name": {
+											"value": "@concat('stg_', first(split(item().name, '_')))",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
