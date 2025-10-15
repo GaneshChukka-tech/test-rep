@@ -130,6 +130,14 @@
 			"blobdirectory": {
 				"type": "string",
 				"defaultValue": "files/filesinput"
+			},
+			"stgschema": {
+				"type": "string",
+				"defaultValue": "stg"
+			},
+			"tgtschema": {
+				"type": "string",
+				"defaultValue": "etl"
 			}
 		},
 		"annotations": []
