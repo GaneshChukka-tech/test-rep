@@ -17,21 +17,7 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "DS_Checkfilegetmetadata",
-						"type": "DatasetReference",
-						"parameters": {
-							"container": {
-								"value": "@pipeline().parameters.blobcontainer",
-								"type": "Expression"
-							},
-							"directory": {
-								"value": "@pipeline().parameters.blobdirectory",
-								"type": "Expression"
-							},
-							"filename": {
-								"value": "sales*.csv,customer*.csv,product*.csv",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"childItems"
