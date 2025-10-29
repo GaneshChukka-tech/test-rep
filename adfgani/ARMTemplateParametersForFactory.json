@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfgani"
+		},
+		"AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"ssms_ls_password": {
+			"value": ""
+		},
+		"ssms_ls_properties_typeProperties_server": {
+			"value": "DESKTOP-8OTJPKL\\CHUKKASQLSERVER"
+		},
+		"ssms_ls_properties_typeProperties_database": {
+			"value": "Dev_Proj"
+		},
+		"ssms_ls_properties_typeProperties_userName": {
+			"value": "sa"
+		}
+	}
+}

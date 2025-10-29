@@ -1,0 +1,77 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfgani"
+		},
+		"AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage'"
+		},
+		"ssms_ls_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ssms_ls'"
+		},
+		"ssms_ls_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-8OTJPKL\\CHUKKASQLSERVER"
+		},
+		"ssms_ls_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Dev_Proj"
+		},
+		"ssms_ls_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfgani_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage_connectionString": {
+						"value": "[parameters('AzureBlobStorage_connectionString')]"
+					},
+					"ssms_ls_password": {
+						"value": "[parameters('ssms_ls_password')]"
+					},
+					"ssms_ls_properties_typeProperties_server": {
+						"value": "[parameters('ssms_ls_properties_typeProperties_server')]"
+					},
+					"ssms_ls_properties_typeProperties_database": {
+						"value": "[parameters('ssms_ls_properties_typeProperties_database')]"
+					},
+					"ssms_ls_properties_typeProperties_userName": {
+						"value": "[parameters('ssms_ls_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
