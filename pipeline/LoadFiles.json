@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Files Checks",
-				"type": "Lookup",
+				"name": "Get Metadata1",
+				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,45 +15,18 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"modifiedDatetimeStart": {
-								"value": "@utcNow('yyyy-MM-ddT00:00:00Z')\n",
-								"type": "Expression"
-							},
-							"modifiedDatetimeEnd": {
-								"value": "@utcNow('yyyy-MM-ddT23:59:59Z')",
-								"type": "Expression"
-							},
-							"wildcardFileName": "*",
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
-					},
 					"dataset": {
-						"referenceName": "Check_Source_Files",
-						"type": "DatasetReference",
-						"parameters": {
-							"Container": {
-								"value": "@pipeline().parameters.container_source",
-								"type": "Expression"
-							},
-							"Folder": {
-								"value": "@pipeline().parameters.folder_source",
-								"type": "Expression"
-							},
-							"FileName": {
-								"value": "*.csv",
-								"type": "Expression"
-							}
-						}
+						"referenceName": "check_source_files",
+						"type": "DatasetReference"
 					},
-					"firstRowOnly": false
+					"fieldList": [],
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings",
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "BinaryReadSettings"
+					}
 				}
 			}
 		],
