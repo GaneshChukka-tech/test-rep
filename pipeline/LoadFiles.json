@@ -32,10 +32,12 @@
 		],
 		"parameters": {
 			"container_src": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "inputcontainer"
 			},
 			"folder_src": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "source"
 			}
 		},
 		"annotations": []
