@@ -36,11 +36,11 @@
 		"parameters": {
 			"container_src": {
 				"type": "string",
-				"defaultValue": "inputcontainer"
+				"defaultValue": "inputsale"
 			},
 			"folder_src": {
 				"type": "string",
-				"defaultValue": "source"
+				"defaultValue": "files"
 			}
 		},
 		"annotations": []
