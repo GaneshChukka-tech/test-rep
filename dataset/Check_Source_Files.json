@@ -11,9 +11,6 @@
 			},
 			"Folder": {
 				"type": "string"
-			},
-			"FileName": {
-				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -22,7 +19,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@dataset().FileName",
+					"value": "*.csv",
 					"type": "Expression"
 				},
 				"folderPath": {
