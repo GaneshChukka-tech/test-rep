@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage'"
 		},
+		"AzureDatabricks_LS_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_LS'"
+		},
 		"ssms_ls_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ssms_ls'"
@@ -53,6 +57,28 @@
 				"type": "SelfHosted",
 				"description": "External server access integration runtime setup",
 				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks_LS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-4207458768795339.19.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricks_LS_accessToken')]"
+					},
+					"newClusterNodeType": "Standard_DS3_v2",
+					"newClusterNumOfWorker": "1",
+					"newClusterVersion": "10.4.x-scala2.12",
+					"clusterOption": "Fixed",
+					"newClusterInitScripts": []
+				}
 			},
 			"dependsOn": []
 		},
@@ -168,6 +194,118 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/azureselfhosted')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DBCall')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "DailySalesNotebook",
+						"type": "DatabricksNotebook",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/ganeshoctazure@gmail.com/SampleDailyLoadProject",
+							"baseParameters": {
+								"Customer_File_Date": {
+									"value": "@pipeline().parameters.Customer_File_Date",
+									"type": "Expression"
+								},
+								"Customer_File_Name": {
+									"value": "@pipeline().parameters.Customer_File_Name",
+									"type": "Expression"
+								},
+								"Customer_File_Type": {
+									"value": "@pipeline().parameters.Customer_File_Type",
+									"type": "Expression"
+								},
+								"Products_File_Date": {
+									"value": "@pipeline().parameters.Products_File_Date",
+									"type": "Expression"
+								},
+								"Products_File_Name": {
+									"value": "@pipeline().parameters.Products_File_Name",
+									"type": "Expression"
+								},
+								"Products_File_Type": {
+									"value": "@pipeline().parameters.Products_File_Type",
+									"type": "Expression"
+								},
+								"Sales_File_Date": {
+									"value": "@pipeline().parameters.Sales_File_Date",
+									"type": "Expression"
+								},
+								"Sales_File_Name": {
+									"value": "@pipeline().parameters.Sales_File_Name",
+									"type": "Expression"
+								},
+								"Sales_File_Type": {
+									"value": "@pipeline().parameters.Sales_File_Type",
+									"type": "Expression"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureDatabricks_LS",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"Customer_File_Date": {
+						"type": "string",
+						"defaultValue": "2025_10_13"
+					},
+					"Customer_File_Name": {
+						"type": "string",
+						"defaultValue": "customers"
+					},
+					"Customer_File_Type": {
+						"type": "string",
+						"defaultValue": "csv"
+					},
+					"Products_File_Date": {
+						"type": "string",
+						"defaultValue": "2025_10_13"
+					},
+					"Products_File_Name": {
+						"type": "string",
+						"defaultValue": "products"
+					},
+					"Products_File_Type": {
+						"type": "string",
+						"defaultValue": "csv"
+					},
+					"Sales_File_Date": {
+						"type": "string",
+						"defaultValue": "2025_10_13"
+					},
+					"Sales_File_Name": {
+						"type": "string",
+						"defaultValue": "sales"
+					},
+					"Sales_File_Type": {
+						"type": "string",
+						"defaultValue": "csv"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks_LS')]"
 			]
 		},
 		{

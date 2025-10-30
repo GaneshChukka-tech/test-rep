@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ssms_ls'"
 		},
+		"AzureDatabricks_LS_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_LS'"
+		},
 		"ssms_ls_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "DESKTOP-8OTJPKL\\CHUKKASQLSERVER"
@@ -56,6 +60,9 @@
 					},
 					"AzureBlobStorage_connectionString": {
 						"value": "[parameters('AzureBlobStorage_connectionString')]"
+					},
+					"AzureDatabricks_LS_accessToken": {
+						"value": "[parameters('AzureDatabricks_LS_accessToken')]"
 					},
 					"ssms_ls_password": {
 						"value": "[parameters('ssms_ls_password')]"

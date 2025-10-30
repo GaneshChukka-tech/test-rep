@@ -11,6 +11,9 @@
 		"ssms_ls_password": {
 			"value": ""
 		},
+		"AzureDatabricks_LS_accessToken": {
+			"value": ""
+		},
 		"ssms_ls_properties_typeProperties_server": {
 			"value": "DESKTOP-8OTJPKL\\CHUKKASQLSERVER"
 		},
