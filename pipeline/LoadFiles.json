@@ -30,6 +30,16 @@
 				}
 			}
 		],
+		"parameters": {
+			"container_source": {
+				"type": "string",
+				"defaultValue": "inputfiles"
+			},
+			"folder_source": {
+				"type": "string",
+				"defaultValue": "SourceFiles"
+			}
+		},
 		"annotations": []
 	}
 }
