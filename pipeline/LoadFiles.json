@@ -16,17 +16,44 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "ExcelSource",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@utcNow('yyyy-MM-ddT00:00:00Z')\n",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcNow('yyyy-MM-ddT23:59:59Z')",
+								"type": "Expression"
+							},
+							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"dataset": {
-						"referenceName": "CheckFilesDataset",
-						"type": "DatasetReference"
-					}
+						"referenceName": "Check_Source_Files",
+						"type": "DatasetReference",
+						"parameters": {
+							"Container": {
+								"value": "@pipeline().parameters.container_source",
+								"type": "Expression"
+							},
+							"Folder": {
+								"value": "@pipeline().parameters.folder_source",
+								"type": "Expression"
+							},
+							"FileName": {
+								"value": "*.csv",
+								"type": "Expression"
+							}
+						}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
