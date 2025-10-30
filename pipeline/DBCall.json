@@ -1,0 +1,57 @@
+{
+	"name": "DBCall",
+	"properties": {
+		"activities": [
+			{
+				"name": "DailySalesNotebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/ganeshoctazure@gmail.com/SampleDailyLoadProject"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks_LS",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"Customer_File_Date": {
+				"type": "string"
+			},
+			"Customer_File_Name": {
+				"type": "string"
+			},
+			"Customer_File_Type": {
+				"type": "string"
+			},
+			"Products_File_Date": {
+				"type": "string"
+			},
+			"Products_File_Name": {
+				"type": "string"
+			},
+			"Products_File_Type": {
+				"type": "string"
+			},
+			"Sales_File_Date": {
+				"type": "string"
+			},
+			"Sales_File_Name": {
+				"type": "string"
+			},
+			"Sales_File_Type": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
