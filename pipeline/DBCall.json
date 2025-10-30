@@ -15,7 +15,45 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/ganeshoctazure@gmail.com/SampleDailyLoadProject"
+					"notebookPath": "/Users/ganeshoctazure@gmail.com/SampleDailyLoadProject",
+					"baseParameters": {
+						"Customer_File_Date": {
+							"value": "@pipeline().parameters.Customer_File_Date",
+							"type": "Expression"
+						},
+						"Customer_File_Name": {
+							"value": "@pipeline().parameters.Customer_File_Name",
+							"type": "Expression"
+						},
+						"Customer_File_Type": {
+							"value": "@pipeline().parameters.Customer_File_Type",
+							"type": "Expression"
+						},
+						"Products_File_Date": {
+							"value": "@pipeline().parameters.Products_File_Date",
+							"type": "Expression"
+						},
+						"Products_File_Name": {
+							"value": "@pipeline().parameters.Products_File_Name",
+							"type": "Expression"
+						},
+						"Products_File_Type": {
+							"value": "@pipeline().parameters.Products_File_Type",
+							"type": "Expression"
+						},
+						"Sales_File_Date": {
+							"value": "@pipeline().parameters.Sales_File_Date",
+							"type": "Expression"
+						},
+						"Sales_File_Name": {
+							"value": "@pipeline().parameters.Sales_File_Name",
+							"type": "Expression"
+						},
+						"Sales_File_Type": {
+							"value": "@pipeline().parameters.Sales_File_Type",
+							"type": "Expression"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks_LS",
