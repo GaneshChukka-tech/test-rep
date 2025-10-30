@@ -63,31 +63,40 @@
 		],
 		"parameters": {
 			"Customer_File_Date": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "2025_10_13"
 			},
 			"Customer_File_Name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "customers"
 			},
 			"Customer_File_Type": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "csv"
 			},
 			"Products_File_Date": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "2025_10_13"
 			},
 			"Products_File_Name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "products"
 			},
 			"Products_File_Type": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "csv"
 			},
 			"Sales_File_Date": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "2025_10_13"
 			},
 			"Sales_File_Name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "sales"
 			},
 			"Sales_File_Type": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "csv"
 			}
 		},
 		"annotations": []
