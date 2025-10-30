@@ -31,13 +31,11 @@
 			}
 		],
 		"parameters": {
-			"container_source": {
-				"type": "string",
-				"defaultValue": "inputfiles"
+			"container_src": {
+				"type": "string"
 			},
-			"folder_source": {
-				"type": "string",
-				"defaultValue": "SourceFiles"
+			"folder_src": {
+				"type": "string"
 			}
 		},
 		"annotations": []
