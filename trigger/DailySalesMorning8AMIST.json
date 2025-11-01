@@ -1,0 +1,25 @@
+{
+	"name": "DailySalesMorning8AMIST",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "DailySales",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2025-10-31T07:06:00",
+				"endTime": "2025-10-31T10:32:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
